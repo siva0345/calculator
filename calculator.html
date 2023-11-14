@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+        #container{
+            border: 1px solid transparent;
+            height: 100vh;
+            width:100%;
+            background-color: black;
+            margin: auto;
+        }
+        #calscontainer{
+            border:3px solid rgba(3, 3, 181, 0.765);
+            border-radius: 30px;
+            height:570px;
+            width: 350px;
+            margin: auto;
+            padding: 1px;
+            background-image: linear-gradient(to bottom, rgba(0, 0, 119, 0.855), rgba(0, 0, 0, 0.537));
+        }
+        #output{
+            border: 2px solid black;
+            border-radius: 20px;
+            height:160px;
+            display: flex;
+            width:300px;
+            margin: auto;
+            margin-top: 10px;
+            font-size: 30px;
+            font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            background-color: rgba(9, 9, 9, 0.614);
+
+        }
+        .keys{
+            display: grid;
+            grid-template-columns: repeat(4,1fr);
+            margin-top: 20px;
+            padding: 20px;
+        }
+        .singlekey{
+            margin-left: 8px;
+            margin-bottom: 20px;
+            border-radius: 30px;
+            border: 2px transparent;
+            width: 70px;
+            height: 50px;
+            font-size: 15px;
+            background-color: rgba(67, 56, 56, 0.71);
+            color: rgba(255, 255, 255, 0.407);
+        }
+        .singlekey:hover{
+            background-color: rgba(40, 30, 22, 0.54);
+            color: white;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div id="calscontainer">
+            <div>
+                <input style="border: none; color: white;" type="text" id="output">
+                <div class="keys">
+                <button class="singlekey" onclick="clearValue()">C</button>
+                <button class="singlekey" onclick="historyback()">Back</button>
+                <button class="singlekey" onclick="getResult('=')">=</button>
+                <button class="singlekey" onclick="addValue('+')">+</button>
+                <button class="singlekey" onclick="addValue(1)">1</button>
+                <button class="singlekey" onclick="addValue(2)">2</button>
+                <button class="singlekey" onclick="addValue(3)">3</button>
+                <button class="singlekey" onclick="addValue('-')">-</button>
+                <button class="singlekey" onclick="addValue(4)">4</button>
+                <button class="singlekey" onclick="addValue(5)">5</button>
+                <button class="singlekey" onclick="addValue(6)">6</button>
+                <button class="singlekey" onclick="addValue('*')">*</button>
+                <button class="singlekey" onclick="addValue(7)">7</button>
+                <button class="singlekey" onclick="addValue(8)">8</button>
+                <button class="singlekey" onclick="addValue(9)">9</button>
+                <button class="singlekey" onclick="addValue('/')">/</button>
+                <button class="singlekey" onclick="addValue(0)">0</button>
+                <button class="singlekey" onclick="addValue('.')">.</button>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    // let output = document.getElementsByClassName("output");
+    // output.value = 0;
+
+    // function addvalue(value){
+    //     output.value += value;
+    // }
+
+      let output = document.getElementById("output");
+      output.value = 0;
+
+      function clearValue() {
+        output.value = " ";
+      }
+      function historyback() {
+        output.value = clearInterval(output.value);
+      }
+
+      function addValue(value) {
+        output.value += value;
+      }
+
+      function getResult(){
+        output.value=eval(output.value);
+      }
+
+</script>
+</body>
+</html>
